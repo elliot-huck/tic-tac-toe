@@ -28,8 +28,13 @@ body {
   width: 32%;
   height: 32%;
   background-color: whitesmoke;
+  color: whitesmoke;
   justify-content: center;
   align-items: center;
   font-size: 4em;
   font-family: Helvetica, Arial, sans-serif;
+}
+
+#board .clicked {
+  color: blue;
 }
