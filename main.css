@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#board {
+  display: flex;
+  flex-flow: row wrap;
+  height: 80vmin;
+  width: 80vmin;
+  background-color: black;
+  justify-content: space-between;
+  align-content: space-between;
+
+}
+
+#board div {
+  display: flex;
+  width: 32%;
+  height: 32%;
+  background-color: whitesmoke;
+  justify-content: center;
+  align-items: center;
+  font-size: 4em;
+  font-family: Helvetica, Arial, sans-serif;
+}
