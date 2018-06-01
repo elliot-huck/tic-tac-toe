@@ -33,3 +33,7 @@ body {
   font-size: 4em;
   font-family: Helvetica, Arial, sans-serif;
 }
+
+.clicked {
+  font-color: blue;
+}

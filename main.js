@@ -19,8 +19,36 @@ const reorderBoard = () => {
     let currentBox = document.getElementById(currentBoxID);
     let newBoxOrder = "" + i;
     currentBox.style.order = newBoxOrder;
+    currentBox.addEventListener("mouseup", fillSquare);
   }
 }
 
 createBoard();
 reorderBoard();
+
+let turnCounter = 1;
+const getPlayer = () => {
+  if (turnCounter % 2 === 1) {
+    return "X";
+  } else {
+    return "O";
+  }
+}
+let currentPlayerToken = getPlayer();
+
+function fillSquare() {
+  // console.log(this.innerHTML);
+  this.innerHTML = `${currentPlayerToken}`;
+  this.class = "clicked";
+  // console.log(this.innerHTML);
+}
+
+// const xoListener = () => {
+//   for (let i = 1; i <= 9; i++) {
+//     let currentBoxID = "" + i;
+//     let currentBox = document.getElementById(currentBoxID)
+    
+//   }
+// }
+
+// xoListener();
