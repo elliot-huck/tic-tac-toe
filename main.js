@@ -1,4 +1,7 @@
 const order = [8, 3, 4, 1, 5, 9, 6, 7, 2];
+let currentPlayerToken;
+let turnCounter = 1;
+
 
 const createBoard = () => {
   const board = document.querySelector("#board");
@@ -26,7 +29,6 @@ const reorderBoard = () => {
 createBoard();
 reorderBoard();
 
-let turnCounter = 1;
 const getPlayer = () => {
   if (turnCounter % 2 === 1) {
     return "X";
@@ -34,12 +36,14 @@ const getPlayer = () => {
     return "O";
   }
 }
-let currentPlayerToken = getPlayer();
 
 function fillSquare() {
   // console.log(this.innerHTML);
-  this.innerHTML = `${currentPlayerToken}`;
+  currentPlayerToken = getPlayer();
   this.class = "clicked";
+  this.innerHTML = `${currentPlayerToken}`;
+  turnCounter++;
+  console.log(turnCounter);
   // console.log(this.innerHTML);
 }
 
