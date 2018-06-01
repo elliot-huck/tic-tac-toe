@@ -40,10 +40,11 @@ const getPlayer = () => {
 function fillSquare() {
   // console.log(this.innerHTML);
   currentPlayerToken = getPlayer();
-  this.class = "clicked";
   this.innerHTML = `${currentPlayerToken}`;
+  this.style.color = "black";
   turnCounter++;
   console.log(turnCounter);
+  this.removeEventListener("mouseup", fillSquare);
   // console.log(this.innerHTML);
 }
 
