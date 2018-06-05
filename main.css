@@ -9,7 +9,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-flow: column nowrap;
   height: 100vh;
+}
+
+#status {
+  font-size: 3em;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 #board {
@@ -17,7 +23,7 @@ body {
   flex-flow: row wrap;
   height: 80vmin;
   width: 80vmin;
-  background-color: black;
+  background-color: dimgray;
   justify-content: space-between;
   align-content: space-between;
 
