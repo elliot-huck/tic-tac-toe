@@ -50,7 +50,17 @@ const showStatus = () => {
 
 const showWinner = () => {
   const header = document.querySelector("#status");
-  header.textContent = `${currentPlayerToken} wins!`;
+  header.textContent = `${currentPlayerToken} wins! `;
+
+  const replayLink = document.createElement("a");
+  replayLink.href = "index.html";
+  replayLink.textContent = "Play again?"
+  replayLink.style.color = "blue";
+  // replayLink.style.textDecoration = "none";
+  header.appendChild(replayLink);
+
+  let board = document.querySelector("#board");
+  board.style.opacity = "0.15";
 }
 
 createBoard();
@@ -87,6 +97,7 @@ function takeTurn() {
   this.style.color = "black";
 
   // Checks if there is a winner and, if so, displays the win message
+  // Otherwise, it moves to the next turn
   checkWinner();
   if (winner) {
     showWinner();

@@ -19,6 +19,12 @@ body {
   margin-bottom: .5em;
 }
 
+.replay {
+  color: blue
+  text-decoration: none;
+}
+
+
 #board {
   display: flex;
   flex-flow: row wrap;
