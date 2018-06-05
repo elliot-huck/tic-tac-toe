@@ -4,6 +4,7 @@ let turnCounter = 1;
 const playerX = [];
 const playerO = [];
 let currentPlayer;
+let winner = false;
 
 // Lays out the board 1-9
 const createBoard = () => {
@@ -42,17 +43,36 @@ const getPlayer = () => {
 }
 
 // Updates the status bar to show whose turn it is
-const showStatus = (player) => {
+const showStatus = () => {
   const header = document.querySelector("#status");
   header.textContent = `It is ${currentPlayerToken}'s turn`;
+}
+
+const showWinner = () => {
+  const header = document.querySelector("#status");
+  header.textContent = `${currentPlayerToken} wins!`;
 }
 
 createBoard();
 reorderBoard();
 currentPlayerToken = getPlayer();
-showStatus(currentPlayerToken);
+showStatus();
 
-
+const checkWinner = () => {
+  if (currentPlayer.length >= 3) {
+    console.log(currentPlayer);
+    currentPlayer.forEach(a => {
+      currentPlayer.forEach(b => {
+        currentPlayer.forEach(c => {
+          if (a + b + c === 15 && a !== b && b !== c && a !== c) {
+            // console.log(a + b + c);
+            winner = true;
+          }
+        })
+      })
+    })
+  }
+}
 
 // Runs when an empty square is clicked
 function takeTurn() {
@@ -66,18 +86,27 @@ function takeTurn() {
   this.innerHTML = `${currentPlayerToken}`;
   this.style.color = "black";
 
-  // Increments the turnCounter
-  turnCounter++;
-  console.log(`It is now turn ${turnCounter}`);
+  // Checks if there is a winner and, if so, displays the win message
+  checkWinner();
+  if (winner) {
+    showWinner();
+    // console.log("There is a winner")
+  } else {
 
-  // Sets the currentPlayer for the upcoming turn
-  currentPlayerToken = getPlayer();
-  showStatus(currentPlayerToken);
-  // console.log(`Current player: ${currentPlayer}`)
+    // Increments the turnCounter
+    turnCounter++;
+    console.log(`It is now turn ${turnCounter}`);
 
-  // Removes the eventListener from the square
-  this.removeEventListener("mouseup", takeTurn);
-  // console.log(this.innerHTML);
+    // Sets the currentPlayer for the upcoming turn
+    currentPlayerToken = getPlayer();
+    showStatus(currentPlayerToken);
+    // console.log(`Current player: ${currentPlayer}`)
+
+    // Removes the eventListener from the square
+    this.removeEventListener("mouseup", takeTurn);
+    // console.log(this.innerHTML);
+  }
+
 }
 
 
