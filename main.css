@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: lightgray;
+  background-color: whitesmoke;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,13 +16,14 @@ body {
 #status {
   font-size: 3em;
   font-family: Helvetica, Arial, sans-serif;
+  margin-bottom: .5em;
 }
 
 #board {
   display: flex;
   flex-flow: row wrap;
-  height: 80vmin;
-  width: 80vmin;
+  height: 75vmin;
+  width: 75vmin;
   background-color: dimgray;
   justify-content: space-between;
   align-content: space-between;
