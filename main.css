@@ -14,13 +14,13 @@ body {
 }
 
 #status {
-  font-size: 3em;
+  font-size: 2.5em;
   font-family: Helvetica, Arial, sans-serif;
   margin-bottom: .5em;
 }
 
 .replay {
-  color: blue
+  color: blue;
   text-decoration: none;
 }
 

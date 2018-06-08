@@ -42,6 +42,13 @@ const getPlayer = () => {
   }
 }
 
+const clearListeners = () => {
+  const allSquares = document.querySelectorAll("#board > div");
+  allSquares.forEach(a => {
+    a.removeEventListener("mouseup", takeTurn);
+  });
+}
+
 // Updates the status bar to show whose turn it is
 const showStatus = () => {
   const header = document.querySelector("#status");
@@ -54,13 +61,14 @@ const showWinner = () => {
 
   const replayLink = document.createElement("a");
   replayLink.href = "index.html";
-  replayLink.textContent = "Play again?"
+  replayLink.textContent = "Click here to play again"
   replayLink.style.color = "blue";
   // replayLink.style.textDecoration = "none";
   header.appendChild(replayLink);
 
   let board = document.querySelector("#board");
   board.style.opacity = "0.15";
+  clearListeners();
 }
 
 createBoard();
